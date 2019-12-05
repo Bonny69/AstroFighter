@@ -1,0 +1,61 @@
+﻿<Window x:Class="_10_progetto_finale.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_10_progetto_finale"
+        mc:Ignorable="d"
+        Height="450" Width="800" MouseDown="GameStart" Title="AstroFighter" KeyDown="Window_KeyDown" WindowState="Maximized" MouseMove="Window_MouseMove">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/background.png"/>
+        </Grid.Background>
+        <TextBlock Name="temp" Foreground="White" Text="0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="70"/>
+        <Canvas Grid.Row="0" Grid.Column="0" Margin="0" Name="canvas" Loaded="Canvas_Loaded" SizeChanged="Resize"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150*"/>
+                <RowDefinition Height="500*"/>
+                <RowDefinition Height="100*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300*"/>
+                <ColumnDefinition Width="500*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="2" Grid.Column="0" Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Image Name="vita1" Grid.Column="0" Margin="0" Source="Resources/cuore_pieno.png"/>
+                <Image Name="vita2" Grid.Column="1" Margin="0" Source="Resources/cuore_pieno.png"/>
+                <Image Name="vita3" Grid.Column="2" Margin="0" Source="Resources/cuore_pieno.png"/>
+            </Grid>
+            <TextBlock Name="score" Grid.Column="0" Grid.Row="0" FontSize="70" VerticalAlignment="Center" Foreground="White" Text="0" HorizontalAlignment="Left" Width="40"/>
+        </Grid>
+        <Grid Name="pause_screen" Visibility="Hidden">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.3"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Name="text" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="*PAUSA*" FontSize="50"/>
+        </Grid>
+        <Grid Name="start_screen" Background="Black" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Name="start"  Text="Premi con il mouse una parte della finestra" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="70" Foreground="Red" Visibility="Visible" Margin="0,7" HorizontalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>
