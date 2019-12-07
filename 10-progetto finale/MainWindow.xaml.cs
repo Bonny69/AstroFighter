@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +25,7 @@ namespace _10_progetto_finale
         Random rand = new Random();
         Point point = new Point();
         double height = 0, width;
-        int angolo = 0;
+        int angolo = 0, controllo;
         bool pause = false;
         public MainWindow()
         {
@@ -133,27 +133,42 @@ namespace _10_progetto_finale
         }
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
-            double cat1 = e.GetPosition(this).Y - point.Y;
-            double ipotenusa = Math.Sqrt(Math.Pow((e.GetPosition(this).X - point.X), 2) + Math.Pow(cat1, 2));
-            double sin = cat1 / ipotenusa;
-            //sin /= (ipotenusa / 10);
-            //cos /= (ipotenusa / 10);
-            double pino = Math.Pow(Math.Sin(sin), -1);
-            temp.Text = point.X.ToString() + "|" + point.Y + "; " + e.GetPosition(this).X + "|" + e.GetPosition(this).Y+"\n"+cat1+":"+ipotenusa+"\n"+ (int)Math.Asin(sin)+"|"+angolo+"|"+(int)pino+"\n"+sin;
-            angolo = 0;
-            Muovi((int)pino);
+            double cat1 = e.GetPosition(this).X - point.X;
+            double cat2 = e.GetPosition(this).Y - point.Y;
+            double ipo = Math.Sqrt(Math.Pow(cat1, 2) + Math.Pow(cat2, 2));
+            double sin = cat1 / ipo;
+            int angolo_matematico = (int)((Math.Asin(sin) * 180) / Math.PI);
+            while (angolo > 360)
+            {
+                angolo -= 360;
+            }
+            while (angolo < -360)
+            {
+                angolo += 360;
+            }
+            if (cat2 > 0)
+                angolo_matematico += ((90 - angolo_matematico) * 2);
+            if (!controllo.Equals(angolo_matematico))
+            {
+                angolo = 0;
+                Muovi(angolo_matematico);
+                controllo= angolo_matematico;
+            }
         }
         void Shoot()
         {
-            Ellipse palla = new Ellipse();
-            palla.Width = 20;
-            palla.Height = 50;
-            palla.Fill = Brushes.Red;
-            double angolo_matematico = ((angolo-70) * -1) * System.Math.PI / 180;
-            Canvas.SetTop(palla, Canvas.GetTop(main) - 50 + ((main.Height + 25) * (1 - Math.Sin(angolo_matematico))));
-            Canvas.SetLeft(palla, Canvas.GetLeft(main) + ((main.Height + 25) * Math.Cos(angolo_matematico)));
-            canvas.Children.Add(palla);
-            shoot.Start();
+            if(!shoot.IsEnabled)
+            {
+                Ellipse palla = new Ellipse();
+                palla.Width = 20;
+                palla.Height = 50;
+                palla.Fill = Brushes.Red;
+                double angolo_matematico = ((angolo - 70) * -1) * System.Math.PI / 180;
+                Canvas.SetTop(palla, Canvas.GetTop(main) - 50 + ((main.Height + 25) * (1 - Math.Sin(angolo_matematico))));
+                Canvas.SetLeft(palla, Canvas.GetLeft(main) + ((main.Height + 25) * Math.Cos(angolo_matematico)));
+                canvas.Children.Add(palla);
+                shoot.Start();
+            }
         }
         private void Resize(object sender, SizeChangedEventArgs e)
         {
