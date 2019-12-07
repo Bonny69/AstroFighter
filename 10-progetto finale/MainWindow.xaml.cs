@@ -37,16 +37,16 @@ namespace _10_progetto_finale
         {
             for (int i = canvas.Children.Count - 1; i > 0; i--)
             {
-                if (Canvas.GetLeft(canvas.Children[i]) > ((canvas.ActualWidth / 2) + 25))
-                    Canvas.SetLeft(canvas.Children[i], Canvas.GetLeft(canvas.Children[i]) + 10);
-                else
-                {
-                    if (Canvas.GetLeft(canvas.Children[i]) < ((canvas.ActualWidth / 2) - 25))
-                    {
-                        Canvas.SetLeft(canvas.Children[i], Canvas.GetLeft(canvas.Children[i]) - 10);
-                    }
-                }
-                Canvas.SetTop(canvas.Children[i], Canvas.GetTop(canvas.Children[i]) - 10);
+                //if (Canvas.GetLeft(canvas.Children[i]) > ((canvas.ActualWidth / 2) + 25))
+                //    Canvas.SetLeft(canvas.Children[i], Canvas.GetLeft(canvas.Children[i]) + 10);
+                //else
+                //{
+                //    if (Canvas.GetLeft(canvas.Children[i]) < ((canvas.ActualWidth / 2) - 25))
+                //    {
+                //        Canvas.SetLeft(canvas.Children[i], Canvas.GetLeft(canvas.Children[i]) - 10);
+                //    }
+                //}
+                //Canvas.SetTop(canvas.Children[i], Canvas.GetTop(canvas.Children[i]) - 10);
                 if (Canvas.GetTop(canvas.Children[i]) <= -25)
                 {
                     canvas.Children.RemoveAt(i);
@@ -159,14 +159,21 @@ namespace _10_progetto_finale
         {
             if(!shoot.IsEnabled)
             {
-                Ellipse palla = new Ellipse();
-                palla.Width = 20;
-                palla.Height = 50;
-                palla.Fill = Brushes.Red;
-                double angolo_matematico = ((angolo - 70) * -1) * System.Math.PI / 180;
-                Canvas.SetTop(palla, Canvas.GetTop(main) - 50 + ((main.Height + 25) * (1 - Math.Sin(angolo_matematico))));
-                Canvas.SetLeft(palla, Canvas.GetLeft(main) + ((main.Height + 25) * Math.Cos(angolo_matematico)));
-                canvas.Children.Add(palla);
+                Ellipse raggio = new Ellipse();
+                raggio.Width = 20;
+                raggio.Height = 50;
+                raggio.Fill = Brushes.Red;
+                double angolo_matematico = angolo * Math.PI / 180;
+                temp.Text = angolo_matematico.ToString()+"|"+angolo;
+                //Canvas.SetTop(palla, Canvas.GetTop(main) + ((main.Height + 25) * (1 - Math.Sin(angolo_matematico))));
+                //Canvas.SetLeft(palla, Canvas.GetLeft(main) + ((main.Height + 25) * Math.Cos(angolo_matematico)));
+                Canvas.SetTop(raggio, (Canvas.GetTop(main)+Math.Cos(angolo_matematico)*angolo));
+                Canvas.SetLeft(raggio, ((Canvas.GetLeft(main) + ((main.Width / 2)-10))+Math.Sin(angolo_matematico)*angolo));
+                RotateTransform rotated = new RotateTransform();
+                rotated.Angle = angolo;
+                raggio.RenderTransformOrigin = new Point(0.5, 0.5);
+                raggio.RenderTransform = rotated;
+                canvas.Children.Add(raggio);
                 shoot.Start();
             }
         }
