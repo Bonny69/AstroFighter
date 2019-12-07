@@ -140,6 +140,7 @@ namespace _10_progetto_finale
             //cos /= (ipotenusa / 10);
             double pino = Math.Pow(Math.Sin(sin), -1);
             temp.Text = point.X.ToString() + "|" + point.Y + "; " + e.GetPosition(this).X + "|" + e.GetPosition(this).Y+"\n"+cat1+":"+ipotenusa+"\n"+ (int)Math.Asin(sin)+"|"+angolo+"|"+(int)pino+"\n"+sin;
+            angolo = 0;
             Muovi((int)pino);
         }
         void Shoot()
