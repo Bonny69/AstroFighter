@@ -93,9 +93,6 @@
     <Resource Include="Resources\enemy.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\main.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\background.png" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +100,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\cuore_vuoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\main.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_10_progetto_finale"
         mc:Ignorable="d"
-        Height="450" Width="800" MouseDown="GameStart" Title="AstroFighter" KeyDown="Window_KeyDown" WindowState="Maximized" MouseMove="Window_MouseMove">
+        Height="540" Width="960" MouseDown="GameStart" Title="AstroFighter" KeyDown="Window_KeyDown" WindowState="Maximized" MouseMove="Window_MouseMove">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources/background.png"/>

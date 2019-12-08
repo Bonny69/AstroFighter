@@ -37,16 +37,16 @@ namespace _10_progetto_finale
         {
             for (int i = canvas.Children.Count - 1; i > 0; i--)
             {
-                //if (Canvas.GetLeft(canvas.Children[i]) > ((canvas.ActualWidth / 2) + 25))
-                //    Canvas.SetLeft(canvas.Children[i], Canvas.GetLeft(canvas.Children[i]) + 10);
-                //else
-                //{
-                //    if (Canvas.GetLeft(canvas.Children[i]) < ((canvas.ActualWidth / 2) - 25))
-                //    {
-                //        Canvas.SetLeft(canvas.Children[i], Canvas.GetLeft(canvas.Children[i]) - 10);
-                //    }
-                //}
-                //Canvas.SetTop(canvas.Children[i], Canvas.GetTop(canvas.Children[i]) - 10);
+                if (Canvas.GetLeft(canvas.Children[i]) > ((canvas.ActualWidth / 2) + 25))
+                    Canvas.SetLeft(canvas.Children[i], Canvas.GetLeft(canvas.Children[i]) + 10);
+                else
+                {
+                    if (Canvas.GetLeft(canvas.Children[i]) < ((canvas.ActualWidth / 2) - 25))
+                    {
+                        Canvas.SetLeft(canvas.Children[i], Canvas.GetLeft(canvas.Children[i]) - 10);
+                    }
+                }
+                Canvas.SetTop(canvas.Children[i], Canvas.GetTop(canvas.Children[i]) - 10);
                 if (Canvas.GetTop(canvas.Children[i]) <= -25)
                 {
                     canvas.Children.RemoveAt(i);
@@ -179,12 +179,22 @@ namespace _10_progetto_finale
         }
         private void Resize(object sender, SizeChangedEventArgs e)
         {
+            if (shoot.IsEnabled)
+                shoot.Stop();
             for (int i = 0; i < canvas.Children.Count; i++)
             {
                 Canvas.SetTop(canvas.Children[i], (canvas.ActualHeight * Canvas.GetTop(canvas.Children[i])) / height);
                 Canvas.SetLeft(canvas.Children[i], (canvas.ActualWidth * Canvas.GetLeft(canvas.Children[i])) / width);
-                (canvas.Children[i] as Image).Height = (canvas.ActualHeight * (canvas.Children[i] as Image).Height) / height;
-                (canvas.Children[i] as Image).Width = (canvas.ActualWidth * (canvas.Children[i] as Image).Width) / width;
+                if(i>0)
+                {
+                    (canvas.Children[i] as Ellipse).Height = (canvas.ActualHeight * (canvas.Children[i] as Ellipse).Height) / height;
+                    (canvas.Children[i] as Ellipse).Width = (canvas.ActualWidth * (canvas.Children[i] as Ellipse).Width) / width;
+                }
+                else
+                {
+                    main.Height= (canvas.ActualHeight * main.Height) / height;
+                    main.Width = (canvas.ActualWidth * main.Width) / width;
+                }
             }
             if(!height.Equals(0))
             {
@@ -192,6 +202,9 @@ namespace _10_progetto_finale
                 score.Width = (canvas.ActualHeight * score.Width) / height;
                 start.FontSize = (canvas.ActualHeight * start.FontSize) / height;
                 start.Width = (canvas.ActualHeight * start.Width) / height;
+                point = new Point((canvas.ActualWidth/2), (canvas.ActualHeight/2));
+                if (canvas.Children.Count > 1)
+                    shoot.Start();
             }
             height = canvas.ActualHeight;
             width = canvas.ActualWidth;
@@ -199,7 +212,7 @@ namespace _10_progetto_finale
         private void Canvas_Loaded(object sender, RoutedEventArgs e)
         {
             main.Height = canvas.ActualHeight / 3.5;
-            main.Width = (396 * main.Height) / 500;
+            main.Width = main.Height;
             BitmapImage img = new BitmapImage();
             img.BeginInit();
             img.UriSource = new Uri("pack://application:,,,/Resources/main.png");
@@ -208,8 +221,6 @@ namespace _10_progetto_finale
             canvas.Children.Add(main);
             Canvas.SetTop(main, (canvas.ActualHeight / 2) - (main.Height / 2));
             Canvas.SetLeft(main, (canvas.ActualWidth / 2) - (main.Height / 2));
-            //Canvas.SetTop(main, canvas.ActualHeight - main.Height);
-            //Canvas.SetLeft(main, 0);
         }
     }
 }
