@@ -169,8 +169,10 @@ namespace _10_progetto_finale
                 //Canvas.SetLeft(palla, Canvas.GetLeft(main) + ((main.Height + 25) * Math.Cos(angolo_matematico)));
                 if(angolo>0)
                 {
-                    Canvas.SetTop(raggio, (Canvas.GetTop(main) + Math.Cos(angolo_matematico) * angolo));
-                    Canvas.SetLeft(raggio, ((Canvas.GetLeft(main) + ((main.Width / 2) - 10)) + Math.Sin(angolo_matematico) * angolo));
+                    Canvas.SetTop(raggio, (point.Y + Math.Cos(angolo_matematico) * angolo));
+                    Canvas.SetLeft(raggio, (point.X + Math.Sin(angolo_matematico) * angolo));
+                    //Canvas.SetTop(raggio, (Canvas.GetTop(main) + Math.Cos(angolo_matematico) * angolo));
+                    //Canvas.SetLeft(raggio, ((Canvas.GetLeft(main) + ((main.Width / 2) - 10)) + Math.Sin(angolo_matematico) * angolo));
                 }
                 else
                 {
