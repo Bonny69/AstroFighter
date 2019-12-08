@@ -167,8 +167,16 @@ namespace _10_progetto_finale
                 temp.Text = angolo_matematico.ToString()+"|"+angolo;
                 //Canvas.SetTop(palla, Canvas.GetTop(main) + ((main.Height + 25) * (1 - Math.Sin(angolo_matematico))));
                 //Canvas.SetLeft(palla, Canvas.GetLeft(main) + ((main.Height + 25) * Math.Cos(angolo_matematico)));
-                Canvas.SetTop(raggio, (Canvas.GetTop(main)+Math.Cos(angolo_matematico)*angolo));
-                Canvas.SetLeft(raggio, ((Canvas.GetLeft(main) + ((main.Width / 2)-10))+Math.Sin(angolo_matematico)*angolo));
+                if(angolo>0)
+                {
+                    Canvas.SetTop(raggio, (Canvas.GetTop(main) + Math.Cos(angolo_matematico) * angolo));
+                    Canvas.SetLeft(raggio, ((Canvas.GetLeft(main) + ((main.Width / 2) - 10)) + Math.Sin(angolo_matematico) * angolo));
+                }
+                else
+                {
+                    Canvas.SetTop(raggio, (Canvas.GetTop(main) + Math.Cos(angolo_matematico) * angolo));
+                    Canvas.SetLeft(raggio, ((Canvas.GetLeft(main) + ((main.Width / 2) - 10)) - Math.Sin(angolo_matematico) * angolo));
+                }
                 RotateTransform rotated = new RotateTransform();
                 rotated.Angle = angolo;
                 raggio.RenderTransformOrigin = new Point(0.5, 0.5);
