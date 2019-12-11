@@ -25,7 +25,7 @@ namespace _10_progetto_finale
         Random rand = new Random();
         Point point = new Point();
         double height = 0, width;
-        int angolo = 0, controllo;
+        int angolo = 0, controllo, movx, movy;
         bool pause = false;
         public MainWindow()
         {
@@ -37,17 +37,9 @@ namespace _10_progetto_finale
         {
             for (int i = canvas.Children.Count - 1; i > 0; i--)
             {
-                if (Canvas.GetLeft(canvas.Children[i]) > ((canvas.ActualWidth / 2) + 25))
-                    Canvas.SetLeft(canvas.Children[i], Canvas.GetLeft(canvas.Children[i]) + 10);
-                else
-                {
-                    if (Canvas.GetLeft(canvas.Children[i]) < ((canvas.ActualWidth / 2) - 25))
-                    {
-                        Canvas.SetLeft(canvas.Children[i], Canvas.GetLeft(canvas.Children[i]) - 10);
-                    }
-                }
-                Canvas.SetTop(canvas.Children[i], Canvas.GetTop(canvas.Children[i]) - 10);
-                if (Canvas.GetTop(canvas.Children[i]) <= -25)
+                Canvas.SetTop(canvas.Children[i], Canvas.GetTop(canvas.Children[i]) + movx);
+                Canvas.SetLeft(canvas.Children[i], Canvas.GetLeft(canvas.Children[i]) + movy);
+                if((Canvas.GetTop(canvas.Children[i])>canvas.ActualHeight|| Canvas.GetTop(canvas.Children[i])<0)||(Canvas.GetLeft(canvas.Children[i])>canvas.ActualWidth|| Canvas.GetLeft(canvas.Children[i])<0))
                 {
                     canvas.Children.RemoveAt(i);
                 }
@@ -161,28 +153,44 @@ namespace _10_progetto_finale
             {
                 Ellipse raggio = new Ellipse();
                 raggio.Width = 20;
-                raggio.Height = 50;
+                raggio.Height = 20;
                 raggio.Fill = Brushes.Red;
-                double angolo_matematico = angolo * Math.PI / 180;
-                temp.Text = angolo_matematico.ToString()+"|"+angolo;
-                //Canvas.SetTop(palla, Canvas.GetTop(main) + ((main.Height + 25) * (1 - Math.Sin(angolo_matematico))));
-                //Canvas.SetLeft(palla, Canvas.GetLeft(main) + ((main.Height + 25) * Math.Cos(angolo_matematico)));
+                double angolo_matematico = angolo * Math.PI / 180, x=Canvas.GetLeft(main),y=Canvas.GetTop(main)+(main.Height/2);
                 if(angolo>0)
                 {
-                    Canvas.SetTop(raggio, (point.Y + Math.Cos(angolo_matematico) * angolo));
-                    Canvas.SetLeft(raggio, (point.X + Math.Sin(angolo_matematico) * angolo));
-                    //Canvas.SetTop(raggio, (Canvas.GetTop(main) + Math.Cos(angolo_matematico) * angolo));
-                    //Canvas.SetLeft(raggio, ((Canvas.GetLeft(main) + ((main.Width / 2) - 10)) + Math.Sin(angolo_matematico) * angolo));
+                    if(angolo>90)
+                    {
+                        if(angolo>180)
+                        {
+                            movy = -20;
+                            movx = 20;
+                            //MessageBox.Show("1");
+                        }
+                        else
+                        {
+                            movy = 20;
+                            movx = 20;
+                            //MessageBox.Show("2");
+                            x += main.Width;
+                        }
+                    }
+                    else
+                    {
+                        movx = -10;
+                        movy = 20;
+                        //MessageBox.Show("3");
+                        x += main.Width;
+                    }
                 }
                 else
                 {
-                    Canvas.SetTop(raggio, (Canvas.GetTop(main) + Math.Cos(angolo_matematico) * angolo));
-                    Canvas.SetLeft(raggio, ((Canvas.GetLeft(main) + ((main.Width / 2) - 10)) - Math.Sin(angolo_matematico) * angolo));
+                    movx = -20;
+                    movy = -20;
+                    //MessageBox.Show("4");
                 }
-                RotateTransform rotated = new RotateTransform();
-                rotated.Angle = angolo;
-                raggio.RenderTransformOrigin = new Point(0.5, 0.5);
-                raggio.RenderTransform = rotated;
+                Canvas.SetTop(raggio, y);
+                Canvas.SetLeft(raggio, x);
+                temp.Text = x.ToString() + "|" + y;
                 canvas.Children.Add(raggio);
                 shoot.Start();
             }
@@ -221,12 +229,12 @@ namespace _10_progetto_finale
         }
         private void Canvas_Loaded(object sender, RoutedEventArgs e)
         {
-            main.Height = canvas.ActualHeight / 3.5;
-            main.Width = main.Height;
             BitmapImage img = new BitmapImage();
             img.BeginInit();
             img.UriSource = new Uri("pack://application:,,,/Resources/main.png");
             img.EndInit();
+            main.Height = canvas.ActualHeight / 3.5;
+            main.Width = main.Height;
             main.Source = img;
             canvas.Children.Add(main);
             Canvas.SetTop(main, (canvas.ActualHeight / 2) - (main.Height / 2));
