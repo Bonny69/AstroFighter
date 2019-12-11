@@ -151,16 +151,20 @@ namespace _10_progetto_finale
         {
             if(!shoot.IsEnabled)
             {
-                Ellipse raggio = new Ellipse();
-                raggio.Width = 20;
-                raggio.Height = 20;
-                raggio.Fill = Brushes.Lime;
+                BitmapImage img = new BitmapImage();
+                img.BeginInit();
+                img.UriSource = new Uri("pack://application:,,,/Resources/projectile.png");
+                img.EndInit();
+                Image projectile = new Image();
+                projectile.Source = img;
+                projectile.Width = 21;
+                projectile.Height = 21;
                 double angolo_matematico = angolo * Math.PI / 180, x=(canvas.ActualWidth/2-10),y=(canvas.ActualHeight/2-10);
                 movx = -20 * Math.Cos(angolo_matematico);
                 movy = 20 * Math.Sin(angolo_matematico);
-                Canvas.SetTop(raggio, y);
-                Canvas.SetLeft(raggio, x);
-                canvas.Children.Add(raggio);
+                Canvas.SetTop(projectile, y);
+                Canvas.SetLeft(projectile, x);
+                canvas.Children.Add(projectile);
                 shoot.Start();
             }
         }
@@ -172,16 +176,8 @@ namespace _10_progetto_finale
             {
                 Canvas.SetTop(canvas.Children[i], (canvas.ActualHeight * Canvas.GetTop(canvas.Children[i])) / height);
                 Canvas.SetLeft(canvas.Children[i], (canvas.ActualWidth * Canvas.GetLeft(canvas.Children[i])) / width);
-                if(i>0)
-                {
-                    (canvas.Children[i] as Ellipse).Height = (canvas.ActualHeight * (canvas.Children[i] as Ellipse).Height) / height;
-                    (canvas.Children[i] as Ellipse).Width = (canvas.ActualWidth * (canvas.Children[i] as Ellipse).Width) / width;
-                }
-                else
-                {
-                    main.Height= (canvas.ActualHeight * main.Height) / height;
-                    main.Width = (canvas.ActualWidth * main.Width) / width;
-                }
+                (canvas.Children[i] as Image).Height = (canvas.ActualHeight * (canvas.Children[i] as Image).Height) / height;
+                (canvas.Children[i] as Image).Width = (canvas.ActualWidth * (canvas.Children[i] as Image).Width) / width;
             }
             if(!height.Equals(0))
             {
