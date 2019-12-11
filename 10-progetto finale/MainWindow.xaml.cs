@@ -24,8 +24,8 @@ namespace _10_progetto_finale
         DispatcherTimer shoot = new DispatcherTimer(), enemy = new DispatcherTimer();
         Random rand = new Random();
         Point point = new Point();
-        double height = 0, width;
-        int angolo = 0, controllo, movx, movy;
+        double height = 0, width, movx, movy;
+        int angolo = 0, controllo;
         bool pause = false;
         public MainWindow()
         {
@@ -35,14 +35,11 @@ namespace _10_progetto_finale
         }
         private void Shoot_Tick(object sender, EventArgs e)
         {
-            for (int i = canvas.Children.Count - 1; i > 0; i--)
+            Canvas.SetTop(canvas.Children[1], Canvas.GetTop(canvas.Children[1]) + movx);
+            Canvas.SetLeft(canvas.Children[1], Canvas.GetLeft(canvas.Children[1]) + movy);
+            if((Canvas.GetTop(canvas.Children[1])>canvas.ActualHeight || Canvas.GetTop(canvas.Children[1])<0)||(Canvas.GetLeft(canvas.Children[1])>canvas.ActualWidth || Canvas.GetLeft(canvas.Children[1])<0))
             {
-                Canvas.SetTop(canvas.Children[i], Canvas.GetTop(canvas.Children[i]) + movx);
-                Canvas.SetLeft(canvas.Children[i], Canvas.GetLeft(canvas.Children[i]) + movy);
-                if((Canvas.GetTop(canvas.Children[i])>canvas.ActualHeight|| Canvas.GetTop(canvas.Children[i])<0)||(Canvas.GetLeft(canvas.Children[i])>canvas.ActualWidth|| Canvas.GetLeft(canvas.Children[i])<0))
-                {
-                    canvas.Children.RemoveAt(i);
-                }
+                canvas.Children.RemoveAt(1);
             }
             if (canvas.Children.Count - 1 == 0)
                 shoot.Stop();
@@ -51,7 +48,7 @@ namespace _10_progetto_finale
         }
         private void GameStart(object sender, MouseButtonEventArgs e)
         {
-            if(point.Equals(new Point()))
+            if(start_screen.Visibility.Equals(Visibility.Visible))
             {
                 start_screen.Visibility = Visibility.Hidden;
                 point = new Point((canvas.ActualWidth / 2), (canvas.ActualHeight / 2));
@@ -60,7 +57,6 @@ namespace _10_progetto_finale
             {
                 Shoot();
             }
-            //vita1.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/cuore_vuoto.png"));
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -148,7 +144,7 @@ namespace _10_progetto_finale
             {
                 angolo = 0;
                 Muovi(angolo_matematico);
-                controllo= angolo_matematico;
+                controllo = angolo_matematico;
             }
         }
         void Shoot()
@@ -158,68 +154,12 @@ namespace _10_progetto_finale
                 Ellipse raggio = new Ellipse();
                 raggio.Width = 20;
                 raggio.Height = 20;
-                raggio.Fill = Brushes.Red;
-                double angolo_matematico = angolo * Math.PI / 180, x=Canvas.GetLeft(main),y=Canvas.GetTop(main)+(main.Height/2);
-                switch(angolo)
-                {
-                    case 0:
-                        x += (main.Width / 2);
-                        y -= (main.Height / 2);
-                        movx = -20;
-                        movy = 0;
-                        break;
-                    case 90:
-                        x += main.Width;
-                        movy = -20;
-                        movx = 0;
-                        break;
-                    case 180:
-                        movx = 20;
-                        movy = 0;
-                        break;
-                    case -90:
-                        x += main.Width;
-                        movy = 20;
-                        movx = 0;
-                        break;
-                    default:
-                        if (angolo > 0)
-                        {
-                            if (angolo > 90)
-                            {
-                                if (angolo > 180)
-                                {
-                                    movy = -20;
-                                    movx = 20;
-                                    //MessageBox.Show("1");
-                                }
-                                else
-                                {
-                                    movy = 20;
-                                    movx = 20;
-                                    //MessageBox.Show("2");
-                                    x += main.Width;
-                                }
-                            }
-                            else
-                            {
-                                movx = -10;
-                                movy = 20;
-                                //MessageBox.Show("3");
-                                x += main.Width;
-                            }
-                        }
-                        else
-                        {
-                            movx = -20;
-                            movy = -20;
-                            //MessageBox.Show("4");
-                        }
-                        break;
-                }
+                raggio.Fill = Brushes.Lime;
+                double angolo_matematico = angolo * Math.PI / 180, x=(canvas.ActualWidth/2-10),y=(canvas.ActualHeight/2-10);
+                movx = -20 * Math.Cos(angolo_matematico);
+                movy = 20 * Math.Sin(angolo_matematico);
                 Canvas.SetTop(raggio, y);
                 Canvas.SetLeft(raggio, x);
-                temp.Text = x.ToString() + "|" + y;
                 canvas.Children.Add(raggio);
                 shoot.Start();
             }
