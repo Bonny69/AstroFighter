@@ -113,9 +113,9 @@ namespace _10_progetto_finale.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap projectile {
+        internal static System.Drawing.Bitmap projectile_main {
             get {
-                object obj = ResourceManager.GetObject("projectile", resourceCulture);
+                object obj = ResourceManager.GetObject("projectile_main", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -153,12 +153,12 @@ namespace _10_progetto_finale
             {
                 BitmapImage img = new BitmapImage();
                 img.BeginInit();
-                img.UriSource = new Uri("pack://application:,,,/Resources/projectile.png");
+                img.UriSource = new Uri("pack://application:,,,/Resources/projectile_main.png");
                 img.EndInit();
                 Image projectile = new Image();
                 projectile.Source = img;
-                projectile.Width = 21;
-                projectile.Height = 21;
+                projectile.Width = 15;
+                projectile.Height = 15;
                 double angolo_matematico = angolo * Math.PI / 180, x=(canvas.ActualWidth/2-10),y=(canvas.ActualHeight/2-10);
                 movx = -20 * Math.Cos(angolo_matematico);
                 movy = 20 * Math.Sin(angolo_matematico);
@@ -198,7 +198,7 @@ namespace _10_progetto_finale
             img.BeginInit();
             img.UriSource = new Uri("pack://application:,,,/Resources/main.png");
             img.EndInit();
-            main.Height = canvas.ActualHeight / 3.5;
+            main.Height = canvas.ActualHeight / 4;
             main.Width = main.Height;
             main.Source = img;
             canvas.Children.Add(main);
