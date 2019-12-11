@@ -92,6 +92,10 @@ namespace _10_progetto_finale
                             pause_screen.Visibility = Visibility.Visible;
                             pause = true;
                             break;
+                        case Key.U:
+                            angolo = 0;
+                            Muovi(0);
+                            break;
                     }
                 }
                 else
@@ -156,37 +160,62 @@ namespace _10_progetto_finale
                 raggio.Height = 20;
                 raggio.Fill = Brushes.Red;
                 double angolo_matematico = angolo * Math.PI / 180, x=Canvas.GetLeft(main),y=Canvas.GetTop(main)+(main.Height/2);
-                if(angolo>0)
+                switch(angolo)
                 {
-                    if(angolo>90)
-                    {
-                        if(angolo>180)
+                    case 0:
+                        x += (main.Width / 2);
+                        y -= (main.Height / 2);
+                        movx = -20;
+                        movy = 0;
+                        break;
+                    case 90:
+                        x += main.Width;
+                        movy = -20;
+                        movx = 0;
+                        break;
+                    case 180:
+                        movx = 20;
+                        movy = 0;
+                        break;
+                    case -90:
+                        x += main.Width;
+                        movy = 20;
+                        movx = 0;
+                        break;
+                    default:
+                        if (angolo > 0)
                         {
-                            movy = -20;
-                            movx = 20;
-                            //MessageBox.Show("1");
+                            if (angolo > 90)
+                            {
+                                if (angolo > 180)
+                                {
+                                    movy = -20;
+                                    movx = 20;
+                                    //MessageBox.Show("1");
+                                }
+                                else
+                                {
+                                    movy = 20;
+                                    movx = 20;
+                                    //MessageBox.Show("2");
+                                    x += main.Width;
+                                }
+                            }
+                            else
+                            {
+                                movx = -10;
+                                movy = 20;
+                                //MessageBox.Show("3");
+                                x += main.Width;
+                            }
                         }
                         else
                         {
-                            movy = 20;
-                            movx = 20;
-                            //MessageBox.Show("2");
-                            x += main.Width;
+                            movx = -20;
+                            movy = -20;
+                            //MessageBox.Show("4");
                         }
-                    }
-                    else
-                    {
-                        movx = -10;
-                        movy = 20;
-                        //MessageBox.Show("3");
-                        x += main.Width;
-                    }
-                }
-                else
-                {
-                    movx = -20;
-                    movy = -20;
-                    //MessageBox.Show("4");
+                        break;
                 }
                 Canvas.SetTop(raggio, y);
                 Canvas.SetLeft(raggio, x);
