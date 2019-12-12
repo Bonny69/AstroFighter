@@ -30,21 +30,24 @@ namespace _10_progetto_finale
         public MainWindow()
         {
             InitializeComponent();
-            shoot.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            shoot.Interval = new TimeSpan(0, 0, 0, 0, 10);
             shoot.Tick += Shoot_Tick;
         }
         private void Shoot_Tick(object sender, EventArgs e)
         {
-            Canvas.SetTop(canvas.Children[1], Canvas.GetTop(canvas.Children[1]) + movx);
-            Canvas.SetLeft(canvas.Children[1], Canvas.GetLeft(canvas.Children[1]) + movy);
-            if((Canvas.GetTop(canvas.Children[1])>canvas.ActualHeight || Canvas.GetTop(canvas.Children[1])<0)||(Canvas.GetLeft(canvas.Children[1])>canvas.ActualWidth || Canvas.GetLeft(canvas.Children[1])<0))
+            if(canvas.Children.Count-1>0)
             {
-                canvas.Children.RemoveAt(1);
+                Canvas.SetTop(canvas.Children[1], Canvas.GetTop(canvas.Children[1]) + movx);
+                Canvas.SetLeft(canvas.Children[1], Canvas.GetLeft(canvas.Children[1]) + movy);
+                if ((Canvas.GetTop(canvas.Children[1]) > canvas.ActualHeight || Canvas.GetTop(canvas.Children[1]) < 0) || (Canvas.GetLeft(canvas.Children[1]) > canvas.ActualWidth || Canvas.GetLeft(canvas.Children[1]) < 0))
+                {
+                    canvas.Children.RemoveAt(1);
+                }
+                if (canvas.Children.Count - 1 == 0)
+                    shoot.Stop();
+                else
+                    shoot.Start();
             }
-            if (canvas.Children.Count - 1 == 0)
-                shoot.Stop();
-            else
-                shoot.Start();
         }
         private void GameStart(object sender, MouseButtonEventArgs e)
         {
@@ -60,7 +63,7 @@ namespace _10_progetto_finale
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if(!point.Equals(new Point()))
+            if(!start_screen.Visibility.Equals(Visibility.Visible))
             {
 
                 if (!pause)
@@ -87,10 +90,6 @@ namespace _10_progetto_finale
                             enemy.Stop();
                             pause_screen.Visibility = Visibility.Visible;
                             pause = true;
-                            break;
-                        case Key.U:
-                            angolo = 0;
-                            Muovi(0);
                             break;
                     }
                 }
@@ -125,26 +124,29 @@ namespace _10_progetto_finale
         }
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
-            double cat1 = e.GetPosition(this).X - point.X;
-            double cat2 = e.GetPosition(this).Y - point.Y;
-            double ipo = Math.Sqrt(Math.Pow(cat1, 2) + Math.Pow(cat2, 2));
-            double sin = cat1 / ipo;
-            int angolo_matematico = (int)((Math.Asin(sin) * 180) / Math.PI);
-            while (angolo > 360)
+            if(pause_screen.Visibility.Equals(Visibility.Hidden))
             {
-                angolo -= 360;
-            }
-            while (angolo < -360)
-            {
-                angolo += 360;
-            }
-            if (cat2 > 0)
-                angolo_matematico += ((90 - angolo_matematico) * 2);
-            if (!controllo.Equals(angolo_matematico))
-            {
-                angolo = 0;
-                Muovi(angolo_matematico);
-                controllo = angolo_matematico;
+                double cat1 = e.GetPosition(this).X - point.X;
+                double cat2 = e.GetPosition(this).Y - point.Y;
+                double ipo = Math.Sqrt(Math.Pow(cat1, 2) + Math.Pow(cat2, 2));
+                double sin = cat1 / ipo;
+                int angolo_matematico = (int)((Math.Asin(sin) * 180) / Math.PI);
+                while (angolo > 360)
+                {
+                    angolo -= 360;
+                }
+                while (angolo < -360)
+                {
+                    angolo += 360;
+                }
+                if (cat2 > 0)
+                    angolo_matematico += ((90 - angolo_matematico) * 2);
+                if (!controllo.Equals(angolo_matematico))
+                {
+                    angolo = 0;
+                    Muovi(angolo_matematico);
+                    controllo = angolo_matematico;
+                }
             }
         }
         void Shoot()
