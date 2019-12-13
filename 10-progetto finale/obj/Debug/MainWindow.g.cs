@@ -140,7 +140,7 @@ namespace _10_progetto_finale {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/10-progetto finale;component/mainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AstroFighter;component/mainwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\MainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

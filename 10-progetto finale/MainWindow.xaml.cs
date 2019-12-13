@@ -85,8 +85,13 @@ namespace _10_progetto_finale
             string source = "asteroid";
             if (int.Parse(score.Text)>=100)
             {
-                if (rand.Next(0, 4).Equals(1))
+                if (rand.Next(0, 2).Equals(1))
                     source = "drone";
+                if (int.Parse(score.Text) >= 1000)
+                {
+                    spawn.Interval = new TimeSpan(0, 0, 0, 1);
+                    enemy.Interval = new TimeSpan(0, 0, 0, 0, 50);
+                }
             }
             Enemy element = new Enemy(source);
             element.Height = canvas.ActualHeight / 7;

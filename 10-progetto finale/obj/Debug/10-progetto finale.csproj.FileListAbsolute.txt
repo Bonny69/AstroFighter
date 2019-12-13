@@ -37,18 +37,30 @@ C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\_10_pro
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.csproj.GenerateResource.cache
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.exe
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.pdb
-C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\10-progetto finale.exe
-C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\10-progetto finale.pdb
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.csprojAssemblyReference.cache
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\MainWindow.g.cs
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\App.g.cs
-C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale_MarkupCompile.cache
-C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale_MarkupCompile.lref
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\MainWindow.baml
-C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.g.resources
-C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\_10_progetto_finale.Properties.Resources.resources
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.csproj.GenerateResource.cache
-C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.exe
-C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.pdb
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Enemy.g.cs
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Enemy.baml
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Caricamento.g.cs
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Enemy.g.cs
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Salvataggio.g.cs
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Caricamento.baml
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Enemy.baml
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Salvataggio.baml
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Interop.WMPLib.dll
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.csproj.ResolveComReference.cache
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\AstroFighter.exe.manifest
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\AstroFighter.application
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\AstroFighter.exe
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\AstroFighter.pdb
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter_MarkupCompile.cache
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter_MarkupCompile.lref
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.g.resources
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.Properties.Resources.resources
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.exe.manifest
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.application
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.exe
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.pdb
