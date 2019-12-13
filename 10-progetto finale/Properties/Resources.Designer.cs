@@ -63,6 +63,16 @@ namespace _10_progetto_finale.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap asteroid {
+            get {
+                object obj = ResourceManager.GetObject("asteroid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap background {
             get {
                 object obj = ResourceManager.GetObject("background", resourceCulture);
@@ -93,9 +103,9 @@ namespace _10_progetto_finale.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap enemy {
+        internal static System.Drawing.Bitmap drone {
             get {
-                object obj = ResourceManager.GetObject("enemy", resourceCulture);
+                object obj = ResourceManager.GetObject("drone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +116,16 @@ namespace _10_progetto_finale.Properties {
         internal static System.Drawing.Bitmap main {
             get {
                 object obj = ResourceManager.GetObject("main", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MissingNo {
+            get {
+                object obj = ResourceManager.GetObject("MissingNo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

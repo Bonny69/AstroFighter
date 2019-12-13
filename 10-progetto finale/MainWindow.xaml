@@ -32,23 +32,9 @@
                 <Image Name="vita2" Grid.Column="1" Margin="0" Source="Resources/cuore_pieno.png"/>
                 <Image Name="vita3" Grid.Column="2" Margin="0" Source="Resources/cuore_pieno.png"/>
             </Grid>
-            <TextBlock Name="score" Grid.Column="0" Grid.Row="0" FontSize="70" VerticalAlignment="Center" Foreground="White" Text="0" HorizontalAlignment="Left" Width="40"/>
+            <TextBlock Name="score" Grid.Column="0" Grid.Row="0" FontSize="70" VerticalAlignment="Center" Foreground="White" Text="0" Margin="0"/>
         </Grid>
-        <Grid Name="pause_screen" Visibility="Hidden">
-            <Grid.Background>
-                <SolidColorBrush Color="Black" Opacity="0.3"/>
-            </Grid.Background>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="40*"/>
-                <RowDefinition Height="100*"/>
-                <RowDefinition Height="100*"/>
-                <RowDefinition Height="42*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <TextBlock Name="text" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="*PAUSA*" FontSize="50"/>
-        </Grid>
-        <Grid Name="start_screen" Background="Black" Visibility="Visible">
+        <Grid Name="start_screen" Background="Black"  Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100*"/>
                 <RowDefinition Height="100*"/>
@@ -57,5 +43,30 @@
             </Grid.RowDefinitions>
             <TextBlock Name="start"  Text="Premi con il mouse una parte della finestra" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="70" Foreground="Red" Visibility="Visible" Margin="0,7" HorizontalAlignment="Center"/>
         </Grid>
+        <Grid Name="pause_screen" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150*"/>
+                <ColumnDefinition Width="150*"/>
+                <ColumnDefinition Width="150*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.3"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Name="text" Margin="0" TextWrapping="Wrap" Foreground="White" Text="*PAUSA*" Grid.Column="1" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Button Content="Crediti" FontSize="30" Grid.Column="1" Margin="0" Grid.Row="2" Click="Click"/>
+            <Button Content="Salva" FontSize="30" Grid.Column="1" Margin="0" Grid.Row="4" Click="Click"/>
+            <Button Content="Carica" FontSize="30" Grid.Column="1" Margin="0" Grid.Row="6" Click="Click"/>
+        </Grid>
+        <Grid Margin="0" Name="container"/>
     </Grid>
 </Window>

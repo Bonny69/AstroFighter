@@ -53,6 +53,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Caricamento.xaml.cs">
+      <DependentUpon>Caricamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Salvataggio.xaml.cs">
+      <DependentUpon>Salvataggio.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Caricamento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Enemy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -61,10 +75,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Enemy.xaml.cs">
+      <DependentUpon>Enemy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Salvataggio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -90,9 +111,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\enemy.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\background.png" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +124,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\projectile_main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\asteroid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MissingNo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\drone.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

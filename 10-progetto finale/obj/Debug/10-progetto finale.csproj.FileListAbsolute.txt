@@ -50,3 +50,5 @@ C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\_10_proge
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.csproj.GenerateResource.cache
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.exe
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.pdb
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Enemy.g.cs
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Enemy.baml

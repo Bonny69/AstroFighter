@@ -20,33 +20,152 @@ namespace _10_progetto_finale
     /// </summary>
     public partial class MainWindow : Window
     {
-        Image main = new Image();
-        DispatcherTimer shoot = new DispatcherTimer(), enemy = new DispatcherTimer();
+        Image main = new Image(), projectile=new Image();
+        DispatcherTimer shoot = new DispatcherTimer(), enemy = new DispatcherTimer(), spawn=new DispatcherTimer();
         Random rand = new Random();
         Point point = new Point();
         double height = 0, width, movx, movy;
-        int angolo = 0, controllo;
-        bool pause = false;
+        int angolo = 0, controllo, vite=3;
+        List<Enemy> enemies = new List<Enemy>();
         public MainWindow()
         {
             InitializeComponent();
             shoot.Interval = new TimeSpan(0, 0, 0, 0, 10);
             shoot.Tick += Shoot_Tick;
+            spawn.Interval = new TimeSpan(0, 0, 0, 2);
+            spawn.Tick += Spawning;
+            enemy.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            enemy.Tick += Enemy_Tick;
+        }
+        private void Enemy_Tick(object sender, EventArgs e)
+        {
+            for(int i=0;i<enemies.Count;i++)
+            {
+                int x=1,y=1;
+                Canvas.SetTop(enemies[i], Canvas.GetTop(enemies[i]) + (enemies[i].cos * -20));
+                Canvas.SetLeft(enemies[i], Canvas.GetLeft(enemies[i]) + (enemies[i].sin * -20));
+                if(enemies[i].cos>=-1&&enemies[i].cos<=0)
+                {
+                    x = -1;
+                }
+                if(enemies[i].sin >= -1 && enemies[i].sin <= 0)
+                {
+                    y = -1;
+                }
+                if (((Canvas.GetTop(enemies[i]) + enemies[i].Height / 2) - point.Y) * x <= 0 && ((Canvas.GetLeft(enemies[i]) + enemies[i].Width / 2) - point.X) * y <= 0)
+                {
+                    canvas.Children.Remove(enemies[i]);
+                    enemies.RemoveAt(i);
+                    switch (vite)
+                    {
+                        case 1:
+                            vita1.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/cuore_vuoto.png"));
+                            pause_screen.Visibility = Visibility.Visible;
+                            shoot.Stop();
+                            enemy.Stop();
+                            spawn.Stop();
+                            text.Text = "*GAME OVER*";
+                            vite--;
+                            break;
+                        case 2:
+                            vita2.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/cuore_vuoto.png"));
+                            vite--;
+                            break;
+                        case 3:
+                            vita3.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/cuore_vuoto.png"));
+                            vite--;
+                            break;
+                    }
+                }
+            }
+        }
+        private void Spawning(object sender, EventArgs e)
+        {
+            double cat1, cat2, ipo;
+            string source = "asteroid";
+            if (int.Parse(score.Text)>=100)
+            {
+                if (rand.Next(0, 4).Equals(1))
+                    source = "drone";
+            }
+            Enemy element = new Enemy(source);
+            element.Height = canvas.ActualHeight / 7;
+            element.Width = element.Height;
+            Canvas.SetTop(element, rand.Next(0, (int)(canvas.ActualHeight - element.Height) + 1));
+            if (Canvas.GetTop(element).Equals(0) || Canvas.GetTop(element).Equals((int)(canvas.ActualHeight - element.Height)))
+            {
+                Canvas.SetLeft(element, rand.Next(0, (int)(canvas.ActualWidth - element.Width)));
+            }
+            else
+            {
+                if (rand.Next(0, 2).Equals(0))
+                    Canvas.SetLeft(element, 0);
+                else
+                    Canvas.SetLeft(element, canvas.ActualWidth - element.Width);
+            }
+            cat1 = (Canvas.GetLeft(element) + (element.Width / 2))-point.X;
+            cat2 = (Canvas.GetTop(element) + (element.Height / 2)) - point.Y;
+            ipo = Math.Sqrt(Math.Pow(cat1, 2) + Math.Pow(cat2, 2));
+            element.sin = cat1 / ipo;
+            element.cos = cat2 / ipo;
+            element.angolo = (int)((Math.Asin(element.sin) * 180) / Math.PI);
+            if (cat2 < 0)
+                element.angolo += (90- element.angolo)*2;
+            RotateTransform rotated = new RotateTransform();
+            rotated.Angle = (element.angolo*-1);
+            element.RenderTransformOrigin = new Point(0.5, 0.5);
+            element.RenderTransform = rotated;
+            canvas.Children.Add(element);
+            enemies.Add(element);
+            if (!enemy.IsEnabled)
+                enemy.Start();
+        }
+        private void Click(object sender, RoutedEventArgs e)
+        {
+            switch((sender as Button).Content.ToString().ToLower())
+            {
+                case "crediti":
+                    MessageBox.Show("crediti");
+                    break;
+                case "salva":
+                    MessageBox.Show("salva");
+                    break;
+                case "carica":
+                    MessageBox.Show("carica");
+                    break;
+            }
         }
         private void Shoot_Tick(object sender, EventArgs e)
         {
             if(canvas.Children.Count-1>0)
             {
-                Canvas.SetTop(canvas.Children[1], Canvas.GetTop(canvas.Children[1]) + movx);
-                Canvas.SetLeft(canvas.Children[1], Canvas.GetLeft(canvas.Children[1]) + movy);
-                if ((Canvas.GetTop(canvas.Children[1]) > canvas.ActualHeight || Canvas.GetTop(canvas.Children[1]) < 0) || (Canvas.GetLeft(canvas.Children[1]) > canvas.ActualWidth || Canvas.GetLeft(canvas.Children[1]) < 0))
+                Canvas.SetTop(projectile, Canvas.GetTop(projectile) + movx);
+                Canvas.SetLeft(projectile, Canvas.GetLeft(projectile) + movy);
+                if ((Canvas.GetTop(projectile) > canvas.ActualHeight || Canvas.GetTop(projectile) < 0) || (Canvas.GetLeft(projectile) > canvas.ActualWidth || Canvas.GetLeft(projectile) < 0))
                 {
-                    canvas.Children.RemoveAt(1);
+                    canvas.Children.Remove(projectile);
                 }
-                if (canvas.Children.Count - 1 == 0)
+                for(int i=0;i<enemies.Count;i++)
+                {
+                    int x = 1, y = 1;
+                    if (enemies[i].cos >= -1 && enemies[i].cos <= 0)
+                    {
+                        x = -1;
+                    }
+                    if (enemies[i].sin >= -1 && enemies[i].sin <= 0)
+                    {
+                        y = -1;
+                    }
+                    if (((Canvas.GetTop(enemies[i]) + enemies[i].Height / 2) - Canvas.GetTop(projectile)) * x <= 0 && ((Canvas.GetLeft(enemies[i]) + enemies[i].Width / 2) - Canvas.GetLeft(projectile)) * y <= 0)
+                    {
+                        canvas.Children.Remove(enemies[i]);
+                        score.Text = (int.Parse(score.Text) + enemies[i].score).ToString();
+                        enemies.RemoveAt(i);
+                        canvas.Children.Remove(projectile);
+                    }
+                }
+                if (!canvas.Children.Contains(projectile))
                     shoot.Stop();
-                else
-                    shoot.Start();
             }
         }
         private void GameStart(object sender, MouseButtonEventArgs e)
@@ -55,6 +174,7 @@ namespace _10_progetto_finale
             {
                 start_screen.Visibility = Visibility.Hidden;
                 point = new Point((canvas.ActualWidth / 2), (canvas.ActualHeight / 2));
+                spawn.Start();
             }
             else
             {
@@ -63,10 +183,10 @@ namespace _10_progetto_finale
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if(!start_screen.Visibility.Equals(Visibility.Visible))
+            if(!start_screen.Visibility.Equals(Visibility.Visible)&&vite>0)
             {
 
-                if (!pause)
+                if (!pause_screen.Visibility.Equals(Visibility.Visible))
                 {
                     switch (e.Key)
                     {
@@ -88,8 +208,8 @@ namespace _10_progetto_finale
                         case Key.Escape:
                             shoot.Stop();
                             enemy.Stop();
+                            spawn.Stop();
                             pause_screen.Visibility = Visibility.Visible;
-                            pause = true;
                             break;
                     }
                 }
@@ -98,13 +218,17 @@ namespace _10_progetto_finale
                     if (e.Key.Equals(Key.Escape))
                     {
                         shoot.Start();
-                        //enemy.Start();
+                        spawn.Start();
+                        enemy.Start();
                         pause_screen.Visibility = Visibility.Hidden;
-                        pause = false;
                     }
                 }
             }
         }
+        /// <summary>
+        /// questo metodo ruota il personaggio in base all'angolo inserito
+        /// </summary>
+        /// <param name="movimento">il valore da sommare all'angolo</param>
         void Muovi(int movimento)
         {
             angolo += movimento;
@@ -124,7 +248,7 @@ namespace _10_progetto_finale
         }
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
-            if(pause_screen.Visibility.Equals(Visibility.Hidden))
+            if(!pause_screen.Visibility.Equals(Visibility.Visible))
             {
                 double cat1 = e.GetPosition(this).X - point.X;
                 double cat2 = e.GetPosition(this).Y - point.Y;
@@ -151,13 +275,12 @@ namespace _10_progetto_finale
         }
         void Shoot()
         {
-            if(!shoot.IsEnabled)
+            if(!shoot.IsEnabled && !pause_screen.Visibility.Equals(Visibility.Visible))
             {
                 BitmapImage img = new BitmapImage();
                 img.BeginInit();
                 img.UriSource = new Uri("pack://application:,,,/Resources/projectile_main.png");
                 img.EndInit();
-                Image projectile = new Image();
                 projectile.Source = img;
                 projectile.Width = 15;
                 projectile.Height = 15;
@@ -178,8 +301,16 @@ namespace _10_progetto_finale
             {
                 Canvas.SetTop(canvas.Children[i], (canvas.ActualHeight * Canvas.GetTop(canvas.Children[i])) / height);
                 Canvas.SetLeft(canvas.Children[i], (canvas.ActualWidth * Canvas.GetLeft(canvas.Children[i])) / width);
-                (canvas.Children[i] as Image).Height = (canvas.ActualHeight * (canvas.Children[i] as Image).Height) / height;
-                (canvas.Children[i] as Image).Width = (canvas.ActualWidth * (canvas.Children[i] as Image).Width) / width;
+                if(canvas.Children[i] is Image)
+                {
+                    (canvas.Children[i] as Image).Height = (canvas.ActualHeight * (canvas.Children[i] as Image).Height) / height;
+                    (canvas.Children[i] as Image).Width = (canvas.ActualWidth * (canvas.Children[i] as Image).Width) / width;
+                }
+                else
+                {
+                    (canvas.Children[i] as Enemy).Height = (canvas.ActualHeight * (canvas.Children[i] as Enemy).Height) / height;
+                    (canvas.Children[i] as Enemy).Width = (canvas.ActualWidth * (canvas.Children[i] as Enemy).Width) / width;
+                }
             }
             if(!height.Equals(0))
             {
