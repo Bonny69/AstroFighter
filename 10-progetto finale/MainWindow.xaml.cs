@@ -337,7 +337,6 @@ namespace _10_progetto_finale
             {
                 score.FontSize = (canvas.ActualHeight * score.FontSize) / height;
                 score.Width = (canvas.ActualHeight * score.Width) / height;
-
                 nome1.FontSize = (canvas.ActualHeight * nome1.FontSize) / height;
                 nome1.Width = (canvas.ActualHeight * nome1.Width) / height;
                 nome2.FontSize = nome1.FontSize;
