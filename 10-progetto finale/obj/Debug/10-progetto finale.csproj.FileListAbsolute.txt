@@ -36,12 +36,8 @@ C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\MainWindo
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.csproj.GenerateResource.cache
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Enemy.g.cs
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Enemy.baml
-C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Caricamento.g.cs
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Enemy.g.cs
-C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Salvataggio.g.cs
-C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Caricamento.baml
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Enemy.baml
-C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Salvataggio.baml
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Interop.WMPLib.dll
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.csproj.ResolveComReference.cache
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\AstroFighter.exe.manifest
@@ -74,3 +70,7 @@ C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Save.g.
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Save.baml
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Credits.g.cs
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Credits.baml
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Credits.g.cs
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Save.g.cs
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Credits.baml
+C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Save.baml

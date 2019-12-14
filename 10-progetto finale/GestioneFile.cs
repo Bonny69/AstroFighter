@@ -10,7 +10,7 @@ namespace _10_progetto_finale
     class GestioneFile
     {
         static public int score;
-        static public string path= "punteggi.txt";
+        static public string path= Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+ "punteggi.txt";
         static public List<string> Read()
         {
             List<string> temp = new List<string>();

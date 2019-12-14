@@ -10,7 +10,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="Resources/background.png"/>
         </Grid.Background>
-        <TextBlock Name="temp" Foreground="White" Text="0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="70"/>
         <Canvas Grid.Row="0" Grid.Column="0" Margin="0" Name="canvas" Loaded="Canvas_Loaded" SizeChanged="Resize"/>
         <Grid>
             <Grid.RowDefinitions>
