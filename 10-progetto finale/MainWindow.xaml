@@ -34,14 +34,30 @@
             </Grid>
             <TextBlock Name="score" Grid.Column="0" Grid.Row="0" FontSize="70" VerticalAlignment="Center" Foreground="White" Text="0" Margin="0"/>
         </Grid>
-        <Grid Name="start_screen" Background="Black"  Visibility="Visible">
+        <Grid Name="start_screen"  Visibility="Visible" Loaded="CaricaFile">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource="Resources/splash_page.png"/>
+            </Grid.Background>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100*"/>
-                <RowDefinition Height="100*"/>
-                <RowDefinition Height="100*"/>
                 <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="100*"/>
             </Grid.RowDefinitions>
-            <TextBlock Name="start"  Text="Premi con il mouse una parte della finestra" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="70" Foreground="Red" Visibility="Visible" Margin="0,7" HorizontalAlignment="Center"/>
+            <TextBlock Name="start"  Text="Premi con il mouse una parte della finestra" Grid.Row="6" Grid.Column="0" FontSize="70" Foreground="Red" Margin="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Name="nome1" HorizontalAlignment="Right" Margin="10" TextWrapping="Wrap" Text="nessuno" VerticalAlignment="Center" Foreground="White" FontSize="35" Grid.Column="0" Grid.Row="0"/>
+            <TextBlock Name="nome2" HorizontalAlignment="Right" Margin="10" TextWrapping="Wrap" Text="nessuno" VerticalAlignment="Center" Foreground="White" FontSize="35" Grid.Column="0" Grid.Row="2"/>
+            <TextBlock Name="nome3" HorizontalAlignment="Right" Margin="10" TextWrapping="Wrap" Text="nessuno" VerticalAlignment="Center" Foreground="White" FontSize="35" Grid.Column="0" Grid.Row="4"/>
+            <TextBlock Name="punti1" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Foreground="White" FontSize="35" Grid.Column="1" Grid.Row="0"/>
+            <TextBlock Name="punti2" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Foreground="White" FontSize="35" Grid.Column="1" Grid.Row="2"/>
+            <TextBlock Name="punti3" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Foreground="White" FontSize="35" Grid.Column="1" Grid.Row="4"/>
         </Grid>
         <Grid Name="pause_screen" Visibility="Hidden">
             <Grid.ColumnDefinitions>
@@ -59,13 +75,10 @@
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="100*"/>
                 <RowDefinition Height="50*"/>
-                <RowDefinition Height="100*"/>
-                <RowDefinition Height="50*"/>
             </Grid.RowDefinitions>
             <TextBlock Name="text" Margin="0" TextWrapping="Wrap" Foreground="White" Text="*PAUSA*" Grid.Column="1" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <Button Content="Crediti" FontSize="30" Grid.Column="1" Margin="0" Grid.Row="2" Click="Click"/>
-            <Button Content="Salva" FontSize="30" Grid.Column="1" Margin="0" Grid.Row="4" Click="Click"/>
-            <Button Content="Carica" FontSize="30" Grid.Column="1" Margin="0" Grid.Row="6" Click="Click"/>
+            <Button Content="Crediti" FontSize="30" Grid.Column="1" Margin="0,40" Grid.Row="2" Click="Click"/>
+            <Button Content="Salva e chiudi" FontSize="30" Grid.Column="1" Margin="0,40" Grid.Row="4" Click="Click"/>
         </Grid>
         <Grid Margin="0" Name="container"/>
     </Grid>

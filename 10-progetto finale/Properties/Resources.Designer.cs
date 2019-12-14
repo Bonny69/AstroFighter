@@ -71,6 +71,16 @@ namespace AstroFighter.Properties {
         }
         
         /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Icon simile a (Icona).
+        /// </summary>
+        internal static System.Drawing.Icon AstroFighter {
+            get {
+                object obj = ResourceManager.GetObject("AstroFighter", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap background {
@@ -111,6 +121,15 @@ namespace AstroFighter.Properties {
         }
         
         /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.IO.UnmanagedMemoryStream simile a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream eplosione {
+            get {
+                return ResourceManager.GetStream("eplosione", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap main {
@@ -136,6 +155,25 @@ namespace AstroFighter.Properties {
         internal static System.Drawing.Bitmap projectile_main {
             get {
                 object obj = ResourceManager.GetObject("projectile_main", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.IO.UnmanagedMemoryStream simile a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream sparo {
+            get {
+                return ResourceManager.GetStream("sparo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap splash_page {
+            get {
+                object obj = ResourceManager.GetObject("splash_page", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

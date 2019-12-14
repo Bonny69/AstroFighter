@@ -24,19 +24,11 @@ C:\Users\samue\OneDrive - hk sar baomin inc\V\info\laboratorio\programmi\10-prog
 C:\Users\samue\OneDrive - hk sar baomin inc\V\info\laboratorio\programmi\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.csproj.GenerateResource.cache
 C:\Users\samue\OneDrive - hk sar baomin inc\V\info\laboratorio\programmi\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.exe
 C:\Users\samue\OneDrive - hk sar baomin inc\V\info\laboratorio\programmi\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.pdb
-C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\10-progetto finale.exe
-C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\10-progetto finale.pdb
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.csprojAssemblyReference.cache
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\MainWindow.g.cs
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\App.g.cs
-C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale_MarkupCompile.cache
-C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale_MarkupCompile.lref
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\MainWindow.baml
-C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.g.resources
-C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\_10_progetto_finale.Properties.Resources.resources
 C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.csproj.GenerateResource.cache
-C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.exe
-C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.pdb
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.csprojAssemblyReference.cache
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\MainWindow.g.cs
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\App.g.cs
@@ -64,3 +56,21 @@ C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFigh
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.application
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.exe
 C:\Users\samue\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.pdb
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\AstroFighter.exe.manifest
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\AstroFighter.application
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\AstroFighter.exe
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\bin\Debug\AstroFighter.pdb
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Interop.WMPLib.dll
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\10-progetto finale.csproj.ResolveComReference.cache
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter_MarkupCompile.cache
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter_MarkupCompile.lref
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.g.resources
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.Properties.Resources.resources
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.exe.manifest
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.application
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.exe
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\AstroFighter.pdb
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Save.g.cs
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Save.baml
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Credits.g.cs
+C:\Users\Samuele\Desktop\10-progetto-finale\10-progetto finale\obj\Debug\Credits.baml
