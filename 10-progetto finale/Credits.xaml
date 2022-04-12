@@ -25,8 +25,8 @@
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Designer:" Margin="10,0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="50" Foreground="White"/>
         <TextBlock Grid.Row="2" Grid.Column="0" Text="IA:" Margin="10,0" HorizontalAlignment="Right" FontSize="50" Foreground="White" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="4" Grid.Column="0" Text="Developer:" Margin="10,0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="50" Foreground="White"/>
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="Samuele Bonaldo" Margin="10,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="50" Foreground="White"/>
-        <TextBlock Grid.Row="2" Grid.Column="2" Text="Samuele Bonaldo" Margin="10,0" HorizontalAlignment="Left" FontSize="50" Foreground="White" VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="4" Grid.Column="3" Text="Samuele Bonaldo" Margin="10,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="50" Foreground="White"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="BonnyRavenclaw" Margin="10,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="50" Foreground="White"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" Text="BonnyRavenclaw" Margin="10,0" HorizontalAlignment="Left" FontSize="50" Foreground="White" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="4" Grid.Column="3" Text="BonnyRavenclaw" Margin="10,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="50" Foreground="White"/>
     </Grid>
 </UserControl>
