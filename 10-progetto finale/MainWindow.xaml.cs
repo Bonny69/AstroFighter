@@ -90,11 +90,14 @@ namespace _10_progetto_finale
             if (int.Parse(score.Text) >= 100)
             {
                 if (rand.Next(0, 2).Equals(1))
-                    source = "drone";
-                if (int.Parse(score.Text) >= 1000)
+                    source = "drone"
+                if((2000 - (int.Parse(score.Text)))>=500)
                 {
-                    spawn.Interval = new TimeSpan(0, 0, 0, 1);
-                    enemy.Interval = new TimeSpan(0, 0, 0, 0, 50);
+                    spawn.Interval = new TimeSpan(0, 0, 0, 0, (2000 - (int.Parse(score.Text))));
+                }
+                if (100 - (int.Parse(score.Text) / 10) >= 1)
+                {
+                    enemy.Interval = new TimeSpan(0, 0, 0, 0, (100 - (int.Parse(score.Text) / 10)));
                 }
             }
             Enemy element = new Enemy(source);
