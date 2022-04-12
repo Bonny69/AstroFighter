@@ -51,6 +51,7 @@
                 <RowDefinition Height="100*"/>
             </Grid.RowDefinitions>
             <TextBlock Name="start"  Text="Premi con il mouse una parte della finestra" Grid.Row="6" Grid.Column="0" FontSize="70" Foreground="Red" Margin="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Name="versione" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" Text="2.0" VerticalAlignment="Top" Foreground="White" FontSize="25" Grid.Column="0" Grid.Row="0"/>
             <TextBlock Name="nome1" HorizontalAlignment="Right" Margin="10" TextWrapping="Wrap" Text="nessuno" VerticalAlignment="Center" Foreground="White" FontSize="35" Grid.Column="0" Grid.Row="0"/>
             <TextBlock Name="nome2" HorizontalAlignment="Right" Margin="10" TextWrapping="Wrap" Text="nessuno" VerticalAlignment="Center" Foreground="White" FontSize="35" Grid.Column="0" Grid.Row="2"/>
             <TextBlock Name="nome3" HorizontalAlignment="Right" Margin="10" TextWrapping="Wrap" Text="nessuno" VerticalAlignment="Center" Foreground="White" FontSize="35" Grid.Column="0" Grid.Row="4"/>
